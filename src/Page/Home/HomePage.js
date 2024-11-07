@@ -8,20 +8,27 @@ import BrandFeatured from '../../Components/Brand/BrandFeatured';
 import Footer from '../../Components/Uitily/Footer';
 import ViewHomeProductsHook from './../../hook/products/view-home-products-hook';
 const HomePage = () => {
+  const [items] = ViewHomeProductsHook();
+  return (
+    <div className="font" style={{ minHeight: "670px" }}>
+      <Silder />
+      <HomeCategory />
+      <CardProductsContainer
+        products={items}
+        title="الاكثر مبيعا"
+        btntitle="المزيد"
+        pathText="/products"
+      />
+      <DiscountSection />
+      <CardProductsContainer
+        products={items}
+        title="احدث الازياء"
+        btntitle="المزيد"
+        pathText="/products"
+      />
+      <BrandFeatured title="اشهر الماركات" btntitle="المزيد" />
+    </div>
+  );
+};
 
-    const [items] = ViewHomeProductsHook();
-    return (
-        <div className='font' style={{ minHeight: '670px' }}>
-
-            <Silder />
-            <HomeCategory />
-            <CardProductsContainer products={items} title="الاكثر مبيعا" btntitle="المزيد" pathText="/products" />
-            <DiscountSection />
-            <CardProductsContainer products={items} title="احدث الازياء" btntitle="المزيد" pathText="/products" />
-            <BrandFeatured title="اشهر الماركات" btntitle="المزيد" />
-
-        </div>
-    )
-}
-
-export default HomePage
+export default HomePage;
